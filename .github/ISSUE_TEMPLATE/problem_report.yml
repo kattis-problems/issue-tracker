@@ -2,24 +2,24 @@ name: Problem report
 description: Report an issue with a Kattis problem
 title: "<problemname>: "
 body:
-  - type: input
-    id: problems
-    attributes:
-      label: Problem short name(s)
-      description: The id from the problem URL. List several if the issue spans problems.
-      placeholder: fishingderby
-    validations:
-      required: true
   - type: dropdown
     id: category
     attributes:
-      label: Category
+      label: Labels
+      multiple: true
       options:
-        - Test data
-        - Statement
-        - Limits
-        - Judging / grading
-        - Other
+        - weak data
+        - incorrect data
+        - incorrect bounds
+        - time limit
+        - clarity
+        - statement
+        - metadata
+        - weak solutions
+        - weak input validator
+        - output validator crash
+        - completely broken
+        - other
     validations:
       required: true
   - type: textarea
@@ -27,7 +27,7 @@ body:
     attributes:
       label: What's wrong?
       description: >-
-        No secret data, judge solutions, or full solutions — describe without
+        Please don't include any secret data, judge solutions, or full solutions - describe without
         spoiling. If that's impossible, say so and we'll take details privately.
     validations:
       required: true
