@@ -1,0 +1,39 @@
+name: Problem report
+description: Report an issue with a Kattis problem
+title: "<problemname>: "
+body:
+  - type: input
+    id: problems
+    attributes:
+      label: Problem short name(s)
+      description: The id from the problem URL. List several if the issue spans problems.
+      placeholder: fishingderby
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Test data
+        - Statement
+        - Limits
+        - Judging / grading
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What's wrong?
+      description: >-
+        No secret data, judge solutions, or full solutions — describe without
+        spoiling. If that's impossible, say so and we'll take details privately.
+    validations:
+      required: true
+  - type: checkboxes
+    id: fixer
+    attributes:
+      label: Fixing it
+      options:
+        - label: I'm willing to implement the fix myself
