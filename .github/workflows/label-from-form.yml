@@ -18,7 +18,8 @@ jobs:
               'completely broken', 'other',
             ]);
             const body = context.payload.issue.body ?? '';
-            const m = body.match(/### Labels\s+([\s\S]*?)(?:\n###|$)/);
+            const re = /### Labels\s+([\s\S]*?)(?=\n###|$)/;
+            const m = body.match(re);
             if (!m) return;
             const labels = m[1].split(',').map(s => s.trim()).filter(s => allowed.has(s));
             if (labels.length) {
@@ -26,5 +27,13 @@ jobs:
                 ...context.repo,
                 issue_number: context.payload.issue.number,
                 labels,
+              });
+            }
+            const newBody = body.replace(re, '').trimStart();
+            if (newBody !== body) {
+              await github.rest.issues.update({
+                ...context.repo,
+                issue_number: context.payload.issue.number,
+                body: newBody,
               });
             }
