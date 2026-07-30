@@ -19,6 +19,7 @@ body:
         - weak input validator
         - output validator crash
         - completely broken
+        - missing repository
         - other
     validations:
       required: true
