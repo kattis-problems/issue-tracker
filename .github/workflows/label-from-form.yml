@@ -15,7 +15,7 @@ jobs:
               'weak data', 'incorrect data', 'incorrect bounds', 'time limit',
               'clarity', 'statement', 'metadata', 'weak solutions',
               'weak input validator', 'output validator crash',
-              'completely broken', 'other',
+              'completely broken', 'other', 'missing repository',
             ]);
             const body = context.payload.issue.body ?? '';
             const re = /### Labels\s+([\s\S]*?)(?=\n###|$)/;
